@@ -1,0 +1,264 @@
+@font-face {
+   font-family: "betty";
+   src: url("../css/font/betty.ttf");
+}
+
+body{
+   font-family: "Dosis",sans-serif;
+text-align: center;
+background-color: #FFA851;
+}
+
+h1 {
+   font-family: "betty";
+}
+
+#menu {
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   top: 85px !important;
+   margin: -75px 0 0 -75px;
+   list-style: none;
+   font-size: 200%;
+   left: 1300px;
+}
+
+.menu-button {
+   opacity: 0;
+   z-index: -1;
+}
+
+.menu-button {
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin: -75px 0 0 -75px;
+   border-radius: 50%;
+   background: white;
+   background-image: url("../css/img/iconemenusmall.png");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   overflow: hidden;
+   text-decoration: none;
+}
+
+#menu:not(:target)>a:first-of-type,
+#menu:target>a:last-of-type {
+   opacity: 1;
+   z-index: 1;
+}
+
+#menu:not(:target)>.icon-plus:before,
+#menu:target>.icon-minus:before {
+   opacity: 1;
+}
+
+.menu-item {
+   width: 70px;
+   height: 70px;
+   position: absolute;
+   left: 55%;
+   line-height: 5px;
+   top: 50%;
+   margin: -50px 0 0 -50px;
+   border-radius: 50%;
+   background-color: white;
+   transform: translate(0px, 0px);
+   transition: transform 500ms;
+   z-index: 0;
+   transition: .5s;
+}
+
+.menu-item:hover{
+opacity: 0.5;
+box-shadow: 0 5px 10px black; 
+}
+
+
+.menu-item a {
+   color: #fff;
+   position: relative;
+   top: 30%;
+   left: 0;
+   text-decoration: none;
+}
+
+#menu:target>.menu-item:nth-child(6) {
+   transform: rotate(60deg) translateY(+150px) rotate(300deg);
+   transition-delay: 0s;
+   background-image: url("../css/img/indexicon.png");
+   background-repeat: round;
+}
+
+#menu:target>.menu-item:nth-child(5) {
+   transform: rotate(20deg) translateY(+155px) rotate(-20deg);
+   transition-delay: 0.1s;
+   background-image: url("../css/img/cover.png");
+   background-repeat: round;
+}
+
+#menu:target>.menu-item:nth-child(3) {
+   transform: rotate(-20deg) translateY(+155px) rotate(20deg);
+   transition-delay: 0.2s;
+   background-image: url("../css/img/tips.png");
+   background-repeat: round;
+}
+
+#menu:target>.menu-item:nth-child(4) {
+   transform: rotate(-60deg) translateY(+150px) rotate(60deg);
+   transition-delay: 0.3s;
+}
+
+.content{
+position: absolute;
+text-align: center;
+margin: -10px 0 0 -30px;
+top: 70%;
+left: 50%;
+font-size: 20px;
+}
+
+.logo {
+   background-image: url(../css/img/restadvisor.png);
+   background-repeat: no-repeat;
+   height: 120px;
+   width: 400px;
+   background-size: contain;
+   margin-top: 1%;
+   margin-left: 60px;
+}
+
+.divMap {
+margin-top: 100px;
+}
+
+.mainBody {
+   display: flex;
+}
+
+.list {
+   margin-top: 100px;
+}
+
+.restaurantsList {
+   height: 400px;
+   overflow: scroll;
+   margin-top: 100px;
+   font-family: "betty";
+   border: double 3px black;
+   background-color: blanchedalmond;
+}
+
+.restName {
+   margin-top: 40px;
+}
+
+hr {
+   border: 0;
+   margin: 1.35em auto;
+   max-width: 100%;
+   background-position: 50%;
+   box-sizing: border-box;
+}
+
+.bookends:before, .bookends:after {
+   position: absolute;
+   bottom: -3.536px;
+   width: 7.071px;
+   height: 7.071px;
+   display: block;
+   border-width: 0 7.071px 7.071px 0;
+   border-color: gray;
+   border-style: double;
+   box-sizing: border-box;
+}
+
+.bookends:before {
+   transform: translateZ(0) rotate(-45deg);
+   left: -21px;
+}
+
+.bookends:after {
+   transform: translateZ(0) rotate(135deg);
+   right: -21px;
+}
+
+.bookends {
+   position: relative;
+   border-width: 5px;
+   border-color: black transparent;
+   height: 11px;
+   border-style: double;
+   width: 20%;
+}
+
+button, hr, input {
+   overflow: visible;
+}
+
+
+.borderMap {
+   margin-top: 275px;
+   position: absolute;
+   height: 400px;
+   left: 50%;
+   transform: translate3d(-50%, -50%, 0);
+   background-color: rgba(#000, 0.5);
+   width: 100%;
+   max-width: 600px;
+   padding: 5px;
+   border: 2px solid black;
+}
+
+.borderMap:before, .borderMap:after {
+     content: "•";
+     position: absolute;
+     width: 14px;
+     height: 14px;
+     font-size: 14px;
+     color: black;
+     border: 2px solid black;
+     line-height: 12px;
+     top: 5px;
+     text-align: center;
+   }
+
+   .borderMap:before {
+     left: 5px;
+   }
+
+   .borderMap:after {
+     right: 5px;
+   }
+
+   .intBorderMap {
+     position: relative;
+     border: 2px solid black;
+     padding: 40px;
+     height: 385px;
+   }
+
+   .intBorderMap:before, .intBorderMap:after {
+       content: "•";
+       position: absolute;
+       width: 14px;
+       height: 14px;
+       font-size: 14px;
+       color: black;
+       border: 2px solid black;
+       line-height: 12px;
+       bottom: -2px;
+       text-align: center;
+   }
+
+   .intBorderMap:before {
+       left: -2px;
+   }
+   
+   .intBorderMap:after {
+       right: -2px;
+   }
+   
