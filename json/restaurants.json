@@ -1,0 +1,133 @@
+{
+   "existingRestaurants" : 
+[
+    {
+       "restaurantName":"Au Cheval Noir",
+       "address":"3 Rue Saint-Arbogast, 67850 Herrlisheim",
+       "lat":48.729781,
+       "long":7.906131,
+       "ratings":[
+          {
+             "stars":4,
+             "comment":"Bonne adresse, accueil sympa et personnel réactif. J'ai goûté un super filet de boeuf aux morilles saignant et tendre à souhait."
+          },
+          {
+             "stars":5,
+             "comment":"Les plats sont de qualités avec des produits frais. L'ambiance est agréable et les prix sont corrects à faire seule, avec des amis ou la familles!"
+          }
+       ]
+    },
+    {
+       "restaurantName":"Restaurant La Forge",
+       "address":"13 Rue des Serruriers, 67760 Gambsheim",
+       "lat":48.691896,
+       "long":7.883033,
+       "ratings":[
+          {
+             "stars":5,
+             "comment":"Très bon restaurant. Les plats étaient excellents. Jolie salle à l'étage. Le service était efficace."
+          },
+          {
+             "stars":5,
+             "comment":"Accueil et service impeccable. L'endroit est très beau, les repas servis sont bons et de qualité."
+          }
+       ]
+    },
+    {
+      "restaurantName":"Au Bâteau à Vapeur",
+      "address":"6 Route de Herrlisheim, 67850 Offendorf",
+      "lat":48.715170,
+      "long":7.915442,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"Magnifique ! Les plats sont présentés avec goût. Les mets sont délicats et savoureux."
+         },
+         {
+            "stars":5,
+            "comment":"Lieu très convivial  menu  rien a redire on mange très bien quantité et qualité."
+         }
+      ]
+   },
+   {
+      "restaurantName":"Michelangelo",
+      "address":"1A Rue du Sénateur Kistler, 67850 Herrlisheim",
+      "lat":48.730200,
+      "long":7.902844,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"Pizzas excellentes, formule demi pizza salade au top et desserts copieux et très bien présentés."
+         },
+         {
+            "stars":4,
+            "comment":"Pour une première expérience ça va il faut y retourner et manger des plats différents personnel sympa."
+         }
+      ]
+   },
+   {
+      "restaurantName":"Le Jardin Manichanh",
+      "address":"119 Route nationale, 67760 Gambsheim",
+      "lat":48.694045,
+      "long":7.884903,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"La nourriture est très bonne, et le restaurant est magnifique."
+         },
+         {
+            "stars":5,
+            "comment":"Une cuisine asiatique moderne, raffinée et copieuse ! Une vraie expérience culinaire,  je ne m'en lasse pas !"
+         }
+      ]
+   },
+   {
+      "restaurantName":"Le Flammestuebel",
+      "address":"7 Rue Principale, 67850 Offendorf",
+      "lat":48.711687,
+      "long":7.911400,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"Terrasse sympa, bon service, personnel sympathique."
+         },
+         {
+            "stars":5,
+            "comment":"Propriétaire des lieux au top superbe accueil ...excellent!"
+         }
+      ]
+   },
+   {
+      "restaurantName":"Le Rhinkaechele",
+      "address":"Ecluse de Gambsheim, 67760 Gambsheim",
+      "lat":48.686006,
+      "long":7.910530,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"Très bon accueil, j'ai adoré qu'il y ait déjà une gamelle d'eau pour les chiens."
+         },
+         {
+            "stars":2,
+            "comment":"Il y fait trop chaud en été, service de midi trop long en semaine."
+         }
+      ]
+   },
+   {
+      "restaurantName":"Fleur de Sureau",
+      "address":"22 Rue du Chemin de Fer, 67760 Gambsheim",
+      "lat":48.695347,
+      "long":7.879737,
+      "ratings":[
+         {
+            "stars":5,
+            "comment":"Excellente adresse repas raffiné menu à 55€."
+         },
+         {
+            "stars":4,
+            "comment":"Beau cadre, bonne cuisine avec une très belle présentation."
+         }
+      ]
+   }
+ ]
+}
