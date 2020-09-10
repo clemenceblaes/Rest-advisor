@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Rest'Advisor, tous les restaurants autour de vous !</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/research.js"></script>
+  <script src="../js/opinion.js"></script>
+</head>
+<body>
+  
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 logo">
+      </div>
+      <div class="col-lg-offset-8">
+      </div>
+        <div class="col-lg-2">
+          <div class="container-fluid">
+            <ul id="menu">
+                   <a class="menu-button icon-plus" href="#menu" title="Show navigation"></a>
+                   <a class="menu-button icon-minus" href="#0" title="Hide navigation"></a>
+                   <li id="contact" class="menu-item">
+                       <a href="">
+                           <span class="fa fa-index"></span>
+                       </a>
+                   </li>
+                   <li id="opinion" class="menu-item">
+                       <a href="">
+                           <span class="fa fa-list"></span>
+                       </a>
+                   </li>
+                   <li id="listrestaurants" class="menu-item">
+                       <a href="">
+                           <span class="fa fa-write"></span>
+                       </a>
+                   </li>
+                   <li id="index" class="menu-item">
+                       <a href="">
+                           <span class="fa fa-contact"></span>
+                       </a>
+                   </li>
+               </ul>
+          </div> 
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 mainBody">
+      <div class="col-lg-6 searchRestaurant">
+        <h1 class=title1>Etape 1 : Cherchez votre restaurant !</h1>
+          <div class="whichRestaurant">
+            <form>
+                <p>
+                    <label for="whichRestaurant">Quel est le restaurant que vous cherchez ? :</label>
+                </p>
+                <input type="search" name="searchRestaurantByName" id="searchText" placeholder="Ex: Au Cheval Noir" size="30" maxlength="20" required/>
+                <button type="button" id="search">Chercher cet établissement</button>
+            </form>
+          </div>
+          <div class="listRestaurantBySearch">
+            <h2>Selectionnez le restaurant dans la liste :</h2>
+            <div class="listRestaurant"></div>
+          </div>
+      </div>
+      <div class="col-lg-6 writeopinion">
+          <h1 class=title2>Etape 2 : Ecrivez votre avis !</h1>
+        <div class = "voteWithStars">
+            <p class="vote">Quelle note sur 5 étoiles ?</p>
+            <div class = "voteRestaurantWithStars">
+                <a id = "1star" class ="voteStar" href="#1" title="1 étoile">☆</a>
+                <a id = "2star" class ="voteStar" href="#2" title="2 étoiles">☆</a>
+                <a id = "3star" class ="voteStar" href="#3" title="3 étoiles">☆</a>
+                <a id = "4star" class ="voteStar" href="#4" title="4 étoiles">☆</a>
+                <a id = "5star" class ="voteStar" href="#5" title="5 étoile">☆</a>
+            </div>
+          </div>
+          <div>
+            <form>
+                <p>
+                    <label for="ameliorer">Quel est votre avis sur le restaurant ?</label><br />
+                    <textarea name="opinion" id="opinion"></textarea>
+                </p>
+            </form>
+            <button type="button" id="addOpinion">Soumettre votre opinion !</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+</script>
+
+</html>
