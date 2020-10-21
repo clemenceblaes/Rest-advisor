@@ -1,25 +1,31 @@
 "use strict";
 
-class Markers {
+import Store from "../js/store.js";
 
-  static displayMarkers() {
+export default class Markers {
 
-    $.getJSON("../json/restaurants.json", (json) => {
+    clearOverlays() {
+        for (var i = 0; i < Store.markersArray.length; i++ ) {
+          Store.markersArray[i].setMap(null);
+        }
+        Store.markersArray.length = 0;
+    }
 
+    displayMarkers() { 
         var icon = {
-            url: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
-            scaledSize: new google.maps.Size(50, 50),
+            url: "http://maps.google.com/mapfiles/kml/pal2/icon13.png",
+            scaledSize: new google.maps.Size(35, 35),
         };
 
-        json.existingRestaurants.forEach(restaurant => {
-            let restPosition = new google.maps.LatLng(restaurant.lat, restaurant.long);
+        Store.actualisationRestaurants.forEach(element => {
             let restMarker = new google.maps.Marker({
-            icon: icon,
-            position: restPosition,
-            map: map,
-            title: restaurant.restaurantName
+                icon: icon,
+                position: element.location,
+                map: map,
+                title: element.name
             })
+            Store.markersArray.push(restMarker);
         })
-    })
-}
+    }
+
 }

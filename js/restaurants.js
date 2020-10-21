@@ -1,68 +1,43 @@
 "use strict";
 
-class Restaurants {
-    constructor(name, adress, positionLat, positionLong, opinion, average ) {
-        this.name = name;
+export default class Restaurant {
+    constructor(id, name, adress, location, average, place_id, opinion, number_opinion, picture) {
+        this.id = id;
+        this.name = name; 
         this.adress = adress;
-        this.positionLat = positionLat;
-        this.positionLong = positionLong;
-        this.opinion = opinion;
+        this.location = location;
         this.average = average;
-
-    }
-    
-    static displayRestaurant() {
-        $.getJSON("../json/restaurants.json", (json) => {
-
-            let numberRestaurant = 0;
-            json.existingRestaurants.forEach(restaurant => {
-                let restaurantsList = 
-                "<div class=\"restaurantName\" id=\"" + numberRestaurant + "\">"+
-                    "<div class=\"" + numberRestaurant + "\" id=\"" + restaurant.restaurantName + "\">"+
-                        "<h2 class=\"" + restaurant.restaurantName + "\">" + restaurant.restaurantName + "</h2>" +
-                            "<h3 id=\"restStar" + numberRestaurant +"\" class=\"restaurantStars\">" + "" + "</h3>"+
-                            "<h3 class=\"restAddress\">" + restaurant.address +"</h3>"+
-                            "<p id=\"restOpinion" + numberRestaurant + "\" class=\"mainOpinion\">" + "</p>"+
-                    "</div>" + 
-                "</div>";
-                    $('.restaurantsList').append(restaurantsList);  
-
-                Store.restaurants.push(new Restaurants(restaurant.restaurantName, restaurant.address, restaurant.lat, restaurant.long, restaurant.ratings, null));
-                numberRestaurant++;     
-            });
-        });
-        console.log(Store.restaurants);
+        this.place_id = place_id;
+        this.opinion = opinion;
+        this.number_opinion = number_opinion;
+        this.picture = picture;
     }
 
-    static displayOpinion() {
-        $.getJSON("../json/restaurants.json", (json) => {
+    addToTable(jsonRestaurants) { //Method that add restaurants from api's requests to the table.
 
-                for (let idRestaurant = 0; idRestaurant < json.existingRestaurants.length; idRestaurant++) {
-                    let restaurantOpinions = [];
-                    for (let existingOpinions = 0; existingOpinions < json.existingRestaurants[idRestaurant].ratings.length; existingOpinions++) {
-                        restaurantOpinions.push(json.existingRestaurants[idRestaurant].ratings[existingOpinions].comment);
+        jsonRestaurants.results.forEach(element => {
 
-                        let addOpinions ="<div id=\"opinionStars" + idRestaurant + "\" class=\"opinionStars\">" + 
-                                            "<div id=\"restaurantOpinion" + idRestaurant + "\" class=\"opinion\">" + restaurantOpinions[existingOpinions] + 
-                                            "</div>" + 
-                                        "</div>";
-                        $("#restOpinion" + idRestaurant).append(addOpinions);
-                        $("#restOpinion" + idRestaurant).css("display", "none");
-                    }
-                }
-                $(".restaurantName").click(function() {
-                    let thisRestaurant = $(this).attr("id");
-                    $("#restOpinion" + thisRestaurant).css("display", "contents"); //fonctionne
-                })
-  
-            
-        })
+              Store.restaurants.push(new Restaurant(Store.restaurants.length, element.name, element.vicinity, element.geometry.location, element.rating, 
+                element.place_id, null, element.user_ratings_total, undefined)); 
 
-
+            if (element.photos[0].photo_reference != undefined) {
+              Store.restaurants.picture = element.photos[0].photo_reference; 
+            }
+      })
     }
-        
 
+    //Method that add restaurants from the html form.
+    addRestaurant(nameRestaurant, adressRestaurant, latRestaurant, longRestaurant){
 
+        let newSessionStorage = Store.restaurants.length;
+        let restPosition = new google.maps.LatLng(latRestaurant, longRestaurant);
+        let newRestaurant = new Restaurant(newSessionStorage ,nameRestaurant, adressRestaurant,restPosition, 0, undefined, null, 0, undefined);
+        Store.restaurants.push(newRestaurant);
+
+        let jsonRestaurant = JSON.stringify(newRestaurant);
+        let titleSessionStorage = "Restaurant" + newSessionStorage;
+        sessionStorage.setItem(titleSessionStorage,jsonRestaurant);
+        restaurant_list.displayRestaurantsList();       
+    }
 }
 
-// https://maps.googleapis.com/maps/api/streetview?size=600x300&location=46.414382,10.013988&heading=151.78&pitch=-0.76&key=YOUR_API_KEY&signature=YOUR_SIGNATURE -- Adress photo API google

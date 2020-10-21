@@ -1,6 +1,9 @@
-class Store {
+"use strict";
 
+export default class Store {
+    static pos;
     static restaurants = [];
-    static markers = [];
+    static restaurantPlaceID;
     static actualisationRestaurants;
+    static markersArray = [];
 }
