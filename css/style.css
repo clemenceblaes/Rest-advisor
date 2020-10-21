@@ -1,0 +1,360 @@
+@font-face {
+    font-family: "betty";
+    src: url("../css/font/betty.ttf");
+}
+ 
+ @font-face {
+    font-family: "sunflower";
+    src: url("../css/font/sunflower.otf");
+}
+
+html{
+    width: 98%;
+    margin: auto;
+}
+
+.logo {
+    background-image: url(../css/img/restadvisor.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 200px !important;
+    margin: auto;
+    margin-left: 15px;
+}
+
+#headerTitle {
+    font-family: "betty";
+    font-size: 48px;
+    color: teal;
+    height: 120px;
+    margin-top: 4%;
+    text-align: center;
+}
+
+#firstRow, #research {
+    display: flex;
+}
+
+#research {
+    background-image: url("../css/img/backgroundResearch.jpg");
+    height: 750px;
+    margin-bottom: 1%;
+}
+
+#manual {
+    text-align: center;
+    margin-top: 25%;
+    color: white;
+    font-size: 24px;
+}
+
+input {
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    font-family: "sunflower";
+}
+
+label {
+    font-family: "sunflower";
+    font-size: 34px;
+}
+
+#byAdress {
+    margin-top: 15px;
+    font-family: "betty";
+}
+
+#byName {
+    font-family: "betty";
+}
+
+#inputName {
+    width: 35%;
+}
+
+#inputAdress {
+    width: 55%;
+}
+
+#researchButton {
+    margin-top: 3%;
+    color: white;
+    background-color: teal;
+    width: 30%;
+    font-family: "sunflower";
+}
+
+#geolocalisation, #addRest, #addRestaurantButton, #addOpinion {
+    text-align: center;
+    color: white;
+    background: teal;
+    width: 30%;
+    font-size: 24px;
+    font-family: "sunflower";
+}
+
+.geolocalisation {
+    text-align: center;
+}
+
+.restTitle {
+    color : teal;
+    font-family: "sunflower";
+    font-size: 32px;
+}
+
+#activate {
+    text-align: center;
+    margin-top: 35%;
+    font-family: "betty";
+    font-size: 34px;
+    color: white;
+}
+
+#map {
+    height: 500px;
+    width: 95%;
+    margin-top: 12%;
+}
+
+.mapPart, .restaurantAddOpinion {
+    text-align: center;
+    display: none;
+}
+
+#addRest, #addRestaurantButton {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#addRestaurant, #opinionForm {
+    display: none;
+}
+
+.addRestForm {
+    font-size: 24px;
+    margin-top: 1%;
+}
+
+#addAdressForm {
+    width: 100%;
+}
+
+#confirmation {
+    display: none;
+    justify-content: center;
+}
+
+#coche {
+    background-image: url("../css/img/coche.png");
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+}
+
+#pCoche {
+    margin-top: 1%;
+    margin-left: 2%;
+    font-size: 24px;
+    font-family: "sunflower";
+}
+
+#filter {
+    font-family: "sunflower";
+    font-size: 28px;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: -5%;
+}
+
+.filterByStars {
+    font-size: 60px;
+    margin-top: -2.5%;
+    margin-left: 2%;
+}
+
+.filterByStars a {
+    color: darkgrey;
+    text-decoration: none;
+}
+
+.filterByStars a:hover{
+    color: #E8CF2D;
+    text-decoration: none;
+}
+
+#cancelFilter a {
+    color: black;
+    text-decoration: none;
+    margin-left: 150%;
+}
+
+#restaurantPicture {
+    margin: auto;
+    background-size: contain !important;
+    height: 300px;
+    width: 350px;
+    background-repeat: no-repeat !important;
+    background-position-x: center !important;
+}
+
+#restTitle, #restAdress, #restAverage {
+    font-family: "sunflower";
+}
+
+#restTitle, #restAverage {
+    font-size: 42px;
+    margin-top: 3%;
+    color: teal;
+}
+
+#restAdress {
+    font-size: 30px;
+    margin-top: 3%;
+}
+
+.footer {
+    display: flex;
+    background-color: teal;
+    margin-top: 1.5%;
+}
+
+#contact {
+    text-align: center;
+    font-family: "sunflower";
+    font-size: 20px;
+    color: white;
+    margin-top: 1.5%;
+} 
+
+#addOpinion {
+    margin-top: 20%;
+}
+
+hr {
+    border: 0;
+    margin: 1.35em auto;
+    max-width: 100%;
+    background-position: 50%;
+    box-sizing: border-box;
+    display: none;
+ }
+ 
+ .bookends:before, .bookends:after {
+    position: absolute;
+    bottom: -3.536px;
+    width: 7.071px;
+    height: 7.071px;
+    display: block;
+    border-width: 0 7.071px 7.071px 0;
+    border-color: gray;
+    border-style: double;
+    box-sizing: border-box;
+ }
+ 
+ .bookends:before {
+    transform: translateZ(0) rotate(-45deg);
+    left: -21px;
+ }
+ 
+ .bookends:after {
+    transform: translateZ(0) rotate(135deg);
+    right: -21px;
+ }
+ 
+ .bookends {
+    position: relative;
+    border-width: 5px;
+    border-color: black transparent;
+    height: 11px;
+    border-style: double;
+    width: 20%;
+ }
+ 
+h1 {
+    font-family: "betty";
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.displayRestaurants, .restaurantListOpinion {
+    height: 500px;
+    overflow: scroll;
+    font-family: "sunflower";
+    border: double 12px teal;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin-top: 5%;
+    width: 95%;
+}
+
+.restaurantTitleAdress, .restaurantListOpinion, #restaurantPicture, #listOpinion, #confirmationOpinion {
+    display: none;
+}
+
+.listRestaurant {
+    text-align: -webkit-center;
+    display: none;
+}
+
+#stars {
+    display: flex;
+    margin-bottom: 3%;
+}
+
+.star {
+    background-image: url("../css/img/star.png");
+}
+
+.halfStar {
+    background-image: url("../css/img/halfstar.png");
+    width: 20px !important;
+}
+
+.star, .halfStar {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+}
+
+.opinionStars {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.opinionText {
+    font-size: 24px;
+    font-family: "sunflower";
+    text-align: center;
+}
+
+.restaurantListOpinion {
+    margin: auto;
+    margin-top: 2.5%;
+    height: 400px;
+}
+
+#listOpinion {
+    text-decoration: underline black;
+    font-size: 48px;
+}
+
+#vote a {
+    color: darkgrey;
+    text-decoration: none;  
+    font-size: 60px;
+}
+
+#vote a:hover {
+    color: #E8CF2D;
+    text-decoration: none;
+}
+
+textarea {
+    width: 100%;
+}
