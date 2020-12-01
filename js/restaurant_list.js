@@ -1,24 +1,26 @@
 "use strict";
 
+//Import the files needed.
 import Store from "../js/store.js";
-import Markers from "./markers.js";
-import Restaurant_infos from "./restaurant_infos.js";
-import Restaurant_opinions from "./restaurant_opinions.js";
+import Restaurant_infos from "../js/restaurant_infos.js";
+import Restaurant_opinions from "../js/restaurant_opinions.js";
+import Restaurant from "../js/restaurants.js";
 
-export default class Restaurant_list {
+export default class Restaurant_list { // Class used for the restaurant's list part of the page.
 
     clickToAddRestaurant = 1; 
-    markers = undefined;
     restaurant_infos = undefined;
-    restaurant_opinion = undefined;
+    restaurant = undefined;
 
-    constructor() {
-        this.markers = new Markers();
+    constructor(places, maps) {
+        this.places = places;
+        this.maps = maps;
+        this.restaurant = new Restaurant();
         this.restaurant_infos = new Restaurant_infos();
-        this.restaurant_opinion = new Restaurant_opinions();
+        this.restaurant_opinion = new Restaurant_opinions(this.places);
     }
 
-    displayRestaurantsList() {
+    displayRestaurantsList(markers) { // Method that generate html name/adress part for each restaurant
 
         Store.restaurants.forEach(element => {
     
@@ -38,69 +40,79 @@ export default class Restaurant_list {
     
         $(".displayRestaurants").append(restaurantsDescription);
         })
-    
-        Store.actualisationRestaurants = Store.restaurants;
-        this.markers.displayMarkers();
-        this.restaurant_infos.displayRestaurantsInfos();
-        this.restaurant_opinion.displayOpinion();     
-    }
 
-    displayAddRestaurantForm() { // Function that show the form to add a restaurant when click on button.
+        Store.actualisationRestaurants = Store.restaurants; // Synchronize active table and main table.
 
-        $(document).ready(function() {
-    
-            $("body").on('click', "#addRest", function () {
-    
-                if(this.clickToAddRestaurant % 2 == 0) {
-                    $("#addRestaurant").css("display", "none");
-                    this.clickToAddRestaurant++;
-                }
-                else {
-                   $("#addRestaurant").css("display", "block"); 
-                   this.clickToAddRestaurant++;
-                }  
-            })
-        })
+        // Method which display informations about restaurant cliked on.
+        
+        this.restaurant_infos.displayRestaurantsInfos(() => { 
+            this.restaurant_opinion.getOpinion(); // Ask Places for Opinion in order to display them.
+        });  
+
+        markers();
     }
 
     addRestaurantFromForm() { //Function that get informations from input to add a restaurant
 
-        $(document).ready(function() {
+        const restaurant = this.restaurant;
+        const self = this;
 
-            let nameRestaurant, adressRestaurant, latRestaurant, longRestaurant;
-                nameRestaurant = $('input[name=nameForm]').val();
-                adressRestaurant = $('input[name=adressForm]').val();
-                latRestaurant = $('input[name=latForm]').val();
-                longRestaurant = $('input[name=longForm]').val();
-
-                if (nameRestaurant == "" || adressRestaurant == "" || latRestaurant == "" ||
-                    longRestaurant == "") {
-                        alert("Merci de bien vouloir remplir tous les champs");
-                    }
-                    
-                else {
-                    restaurant.addRestaurant(nameRestaurant, adressRestaurant, latRestaurant, longRestaurant);
-                }
-                $(".displayRestaurants").empty();
-        })
-    }
-
-    confirmationAddRestaurant() {
         $("body").on('click', "#addRestaurantButton", function () {
 
-            $("#addRestaurant").css("display", "none");
-            $("#confirmation").css("display", "flex"); 
-            setTimeout(() => { 
-                $("#confirmation").css("display", "none");
-            }, 3000);
-            restaurant.addRestaurant();
-            this.clickToAddRestaurant++;
-        })
+            // Get all values from inputs.
+        let nameRestaurant, adressRestaurant, latRestaurant, longRestaurant;
+            nameRestaurant = $('input[name=nameForm]').val();
+            adressRestaurant = $('input[name=adressForm]').val();
+            latRestaurant = $('input[name=latForm]').val();
+            longRestaurant = $('input[name=longForm]').val();
+
+            // If there is one empty, ask user to complete.
+            if (nameRestaurant == "" || adressRestaurant == "" || latRestaurant == "" ||
+                longRestaurant == "") {
+                    alert("Merci de bien vouloir remplir tous les champs");
+                }
+                
+            else {
+                // Method that add the restaurant on main table.
+                restaurant.addRestaurant(nameRestaurant, adressRestaurant, latRestaurant, longRestaurant);
+                self.confirmationAddRestaurant(); // Show a confirmation.
+                $(".displayRestaurants").empty();
+                self.displayRestaurantsList(); // Display the new list of restaurant.
+            }
+        });
     }
 
-    init() {
-        this.displayAddRestaurantForm();
-        this.addRestaurantFromForm();
-        this.confirmationAddRestaurant();
+    confirmationAddRestaurant() { // Function that show a confirmation when user add a restaurant. 
+    
+        $("#addRestaurant").css("display", "none");
+        $("#confirmation").css("display", "flex"); 
+        setTimeout(() => { 
+            $("#confirmation").css("display", "none"); //Disappear after 3 secondes.
+        }, 3000);
+        this.clickToAddRestaurant++;
+    }
+
+    
+    displayAddRestaurantForm() { // Function that show the form to add a restaurant when click on button.
+
+        const addRestaurant = this.addRestaurantFromForm(); //Add the restaurant if all informations is validated. 
+   
+            $("body").on('click', "#addRest", function () {
+    
+                if(this.clickToAddRestaurant % 2 == 0) { // If the value can be divide per 2 => dont show the form
+                    $("#addRestaurant").css("display", "none");
+                    this.clickToAddRestaurant++;
+                }
+                else {
+                    $("#addRestaurant").css("display", "block"); //Show the form
+                    this.clickToAddRestaurant++;
+                    addRestaurant;
+                }  
+            })
+    }
+
+    init() { // Function that init the main script from this part.
+        const displayAddRestaurantForm = this.displayAddRestaurantForm.bind(this);
+        $(document).ready(displayAddRestaurantForm);
     }
 }
