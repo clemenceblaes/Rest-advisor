@@ -14,7 +14,7 @@
 <header>
   <div class="row">
     <div id="firstRow" class="col-lg-12">
-      <div class="col-lg-3 logo">
+      <div class="col-lg-3 col-sm-6 logo">
       </div>
       <div class="col-lg-9">
         <p id="headerTitle">Tous les restaurants en un click !</p>
@@ -26,7 +26,7 @@
 <body>
   <div class="row">
     <div id="research" class="col-lg-12">
-      <div class="col-lg-6">
+      <div class="col-xl-6 col-lg-12 col-sm-12">
         <form id="manual">
           <label id="byName">Recherche par nom :</label><br>
           <input type="text" id="inputName" name="researchName" placeholder="Le Bistro des amoureux"><br>
@@ -35,7 +35,7 @@
           <button type="button" id="researchButton">Chercher</button> 
         </form>
       </div>
-      <div class="col-lg-6 geolocalisation">
+      <div class="col-xl-6 col-lg-12 col-sm-12 geolocalisation">
         <p id="activate">Ou activez la</p>
         <button type="button" id="geolocalisation">Geolocalisation</button>
       </div>
@@ -59,7 +59,7 @@
           <a id= "4" class= "filterStar" href="#4" title="4 étoiles">☆</a>
           <a id= "5" class= "filterStar" href="#5" title="5 étoile">☆</a>
         </div>
-        <div id="cancelFilter"><a href="" title="Annuler le filtre">Annuler</a></div>
+        <div id="cancelFilter"><a title="Annuler le filtre">Annuler</a></div>
       </div>
       <div class="displayRestaurants">
       </div>
@@ -112,14 +112,14 @@
         <div id="opinionForm">
         <p class="voteWithStars">Votre note :</p>
         <div id="vote">
-          <a id="star1" class="voteStar" href="#1" title="Donner 1 étoiles">☆</a>
-          <a id="star2" class="voteStar" href="#2" title="Donner 2 étoiles">☆</a>
-          <a id="star3" class="voteStar" href="#3" title="Donner 3 étoiles">☆</a>
-          <a id="star4" class="voteStar" href="#4" title="Donner 4 étoiles">☆</a>
-          <a id="star5" class="voteStar" href="#5" title="Donner 5 étoile">☆</a>
+          <a id="star1" class="voteStar"  title="Donner 1 étoiles">☆</a>
+          <a id="star2" class="voteStar"  title="Donner 2 étoiles">☆</a>
+          <a id="star3" class="voteStar"  title="Donner 3 étoiles">☆</a>
+          <a id="star4" class="voteStar"  title="Donner 4 étoiles">☆</a>
+          <a id="star5" class="voteStar"  title="Donner 5 étoile">☆</a>
         </div>
         <form id="addOpinionForm">
-          <label>Votre avis:  <textarea name="opinion"></textarea></label><br>
+          <label>Votre avis:  <textarea id="opinionInputText" name="opinion"></textarea></label><br>
           <button id="addOpinionTable" type="button">Soumettre votre avis</button>
         </form>
       </div>
@@ -134,7 +134,7 @@
 <footer>
   <div class="row">
     <div class="col-lg-12 footer">
-      <div class="col-lg-3 logo">
+      <div class="col-lg-3 logofooter">
       </div>
       <div class="col-lg-6">
         <p id="contact">Pour nous contacter :<br>
@@ -142,8 +142,9 @@
         01 02 03 04 05<br>
         clemence.blaes@miaou.fr</p>
       </div>
-      <div class="col-lg-3 logo">
+      <div class="col-lg-3 logofooter">
       </div>
     </div>
   </div>
 </footer>
+
