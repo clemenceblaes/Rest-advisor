@@ -10,7 +10,6 @@
 
 html{
     width: 98%;
-    margin: auto;
 }
 
 .logo {
@@ -18,7 +17,6 @@ html{
     background-size: contain;
     background-repeat: no-repeat;
     height: 150px;
-    width: 200px !important;
     margin: auto;
     margin-left: 15px;
 }
@@ -32,14 +30,26 @@ html{
     text-align: center;
 }
 
-#firstRow, #research {
+#firstRow {
     display: flex;
+    margin-top: 2%;
+}
+
+.logofooter {
+    background-image: url(../css/img/restadvisor.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 150px;
+    margin: auto;
+    margin-left: 15px;
+    margin-top: 3%;
 }
 
 #research {
-    background-image: url("../css/img/backgroundResearch.jpg");
-    height: 750px;
+    background-image: url(../css/img/backgroundResearch.jpg);
+    min-height: 1300px;
     margin-bottom: 1%;
+    margin-top: 2%;
 }
 
 #manual {
@@ -227,8 +237,12 @@ label {
     font-family: "sunflower";
     font-size: 20px;
     color: white;
-    margin-top: 1.5%;
+    margin-top: 10%;
 } 
+
+#opinionInputText {
+    font-size: 16px;
+}
 
 #addOpinion {
     margin-top: 20%;
@@ -357,4 +371,93 @@ h1 {
 
 textarea {
     width: 100%;
+}
+
+@media (min-width: 1200px) {
+
+    body {
+        margin: auto;
+        margin-left: 1.5%;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px !important;
+        margin-left: 0px;
+    }
+
+    #research {
+        display: flex;
+        background-image: url("../css/img/backgroundResearch.jpg");
+        min-height: 700px;
+        margin-bottom: 1%;
+        margin-top: 0px;
+    }
+
+    #firstRow {
+        margin-top: 0px;
+    }
+
+    .logo {
+        background-image: url(../css/img/restadvisor.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 150px;
+        width: 200px !important;
+        margin: auto;
+        margin-left: 15px;
+    }
+
+    .footer {
+        display: flex;
+        background-color: teal;
+        margin-top: 0px;
+    }
+
+    .logofooter {
+        margin-top: 1%;
+        margin-left: 0px !important;
+
+    }
+
+    #contact {
+        text-align: center;
+        font-family: "sunflower";
+        font-size: 20px;
+        color: white;
+        margin-top: 1.5%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: 5px;
+    }
+
+    .logofooter {
+        background-image: url(../css/img/restadvisor.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 150px;
+        margin: auto;
+        margin-left: 0px;
+        margin-top: 4.5%;
+    }
+    
+    #contact {
+        text-align: center;
+        font-family: "sunflower";
+        font-size: 20px;
+        color: white;
+        margin-top: 6.5%;
+    }
 }

@@ -1,53 +1,54 @@
 "use strict";
 
-import Restaurant_infos from "../js/restaurant_infos.js";
+//Import the filed needed
+import Store from "../js/store.js";
+import Restaurant_opinions from "../js/restaurant_opinions.js";
 
-export default class Opinion {
+export default class Opinion {  // Class that let user add an opinion.
 
-    restaurant_infos = undefined;
+    addOpinion(opinionText) {
 
-    constructor() {
-        this.restaurant_infos = new Restaurant_infos();
-    }
-
-    addOpinion(htmlNumberStar, numberStar, opinionText) {
-   
+        //First we check if all cases are used
         if (opinionText === undefined) {
             alert("Merci de renseigner un avis.")
         }
-        else if (htmlNumberStar === undefined) {
+        else if (Restaurant_opinions.htmlNumberStar === undefined) {
             alert("Merci de donner une note à l'établissement");
         }
         else {
+
+            // This search the restaurant we have to push a new opinion
             let restaurant = Store.restaurants.filter(element => element.place_id == Store.restaurantPlaceID);
+
+            // We create a new opinion
             let jsonOpinion = 
                     {
-                    "stars": numberStar,
+                    "stars": Restaurant_opinions.numberStar,
                     "comment": opinionText,
                     };
     
             if (restaurant.opinion == null) {
-                restaurant.opinion = jsonOpinion;
+                restaurant.opinion = new Array(); // If this restaurant has no opinion we create the table.
             }
     
-            else {
-                restaurant.opinion.push(jsonOpinion);
-            }
+            Store.restaurants[restaurant[0].id].opinion.push(jsonOpinion); // Else we push the new one
     
+
+            // This part calculate a new average.
             let restaurantStars = [];
     
-            for (let existingStars = 0; existingStars < restaurant.opinion.length; existingStars++) {
+            for (let existingStars = 1; existingStars < Store.restaurants[restaurant[0].id].opinion.length; existingStars++) {
             //For each restaurant we push the number of star on a table to make an average.
-            restaurantStars.push(parseInt(restaurant.opinion[existingStars].stars)); 
+            restaurantStars.push(parseInt(Store.restaurants[restaurant[0].id].opinion[existingStars].stars)); 
             }
 
             //This part calculate the average.
             const reducer = (accumulator, currentValue) => accumulator + currentValue;
             let restaurantNumberStar = restaurantStars.reduce(reducer);   
-            let restaurantAverageStars = Math.round((restaurantNumberStar / parsedRestaurant.opinion.length)*100)/100;
+            let restaurantAverageStars = Math.round((restaurantNumberStar / Store.restaurants[restaurant[0].id].length)*100)/100;
             restaurant.average = restaurantAverageStars;
     
-        this.restaurant_infos.displayOpinion();
+        Restaurant_opinions.displayNewOpinions(); // Method that display all opinions old + new.
         }
     }
 }
