@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Rest'Advisor, tous les restaurants autour de vous !</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1Hl07T2rCswkqAaJmIiKL1SChOG4aVfs&libraries=places"></script>
+  <script type="module" src="../js/main.js"></script>
+</head>
+
+<header>
+  <div class="row">
+    <div id="firstRow" class="col-lg-12">
+      <div class="col-lg-3 col-sm-6 logo">
+      </div>
+      <div class="col-lg-9">
+        <p id="headerTitle">Tous les restaurants en un click !</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<body>
+  <div class="row">
+    <div id="research" class="col-lg-12">
+      <div class="col-xl-6 col-lg-12 col-sm-12">
+        <form id="manual">
+          <label id="byName">Recherche par nom :</label><br>
+          <input type="text" id="inputName" name="researchName" placeholder="Le Bistro des amoureux"><br>
+          <label id="byAdress">Recherche par adresse :</label><br> 
+          <input type="text" id="inputAdress" name="researchAdress" placeholder="7, Rue des Coeurs 67000 Strasbourg"><br>
+          <button type="button" id="researchButton">Chercher</button> 
+        </form>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-sm-12 geolocalisation">
+        <p id="activate">Ou activez la</p>
+        <button type="button" id="geolocalisation">Geolocalisation</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-lg-12">
+      <hr class="bookends">
+    </div>
+    <div id= "listOfRestaurants" class="col-lg-6 listRestaurant">
+      <h1>Les restaurants au Menu :</h1>
+      <div id="filter" class="col-lg-12">
+        <p>Filtrer :</p>
+        <div class="filterByStars">
+          <a id= "1" class= "filterStar" href="#1" title="1 étoiles">☆</a>
+          <a id= "2" class= "filterStar" href="#2" title="2 étoiles">☆</a>
+          <a id= "3" class= "filterStar" href="#3" title="3 étoiles">☆</a>
+          <a id= "4" class= "filterStar" href="#4" title="4 étoiles">☆</a>
+          <a id= "5" class= "filterStar" href="#5" title="5 étoile">☆</a>
+        </div>
+        <div id="cancelFilter"><a title="Annuler le filtre">Annuler</a></div>
+      </div>
+      <div class="displayRestaurants">
+      </div>
+    </div>
+    <div class="col-lg-6 mapPart">
+      <div id="map">
+      </div>
+      <div id="addPart">
+        <button type="button" id="addRest">Ajouter un restaurant</button>
+        <form id="addRestaurant">
+          <label class="addRestForm">Nom :  <input name= "nameForm" type="text" placeholder="Le Bistro des amoureux"></label><br>
+          <label class="addRestForm">Adresse : <input name= "adressForm" type="text" id="addAdressForm" placeholder="7, Rue des Coeurs 67000 Strasbourg"></label><br>
+          <label class="addRestForm">Latitude : <input name= "latForm" type="text" placeholder="40.125847"></label><br>
+          <label  class="addRestForm">Longitude : <input name= "longForm"type="text" placeholder="8.175412"></label><br>
+          <button type="button" id="addRestaurantButton">Ajouter</button>
+        </form>
+      </div>
+      <div id="confirmation">
+        <p id="coche"></p>
+        <p id="pCoche">Le Restaurant à bien été ajouté ! Merci pour votre contribution.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <hr class="bookends">
+    </div>
+    <div id="restaurantPicture" class="col-lg-4">
+    </div>
+    <div class="col-lg-8 restaurantTitleAdress">
+      <p id="restTitle"></p>
+      <p id="restAdress"></p>
+      <p id="restAverage">Note Moyenne:</p>
+      <div id="stars"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <hr class="bookends">
+    </div>
+    <div class="col-lg-12">
+    <h1 id="listOpinion">Les critiques culinaires :</h1>
+  </div>
+    <div class="col-lg-6 restaurantListOpinion">
+    </div>
+    <div class="col-lg-6 restaurantAddOpinion">
+      <button type="button" id="addOpinion">Ajouter un avis !</button>
+        <div id="opinionForm">
+        <p class="voteWithStars">Votre note :</p>
+        <div id="vote">
+          <a id="star1" class="voteStar"  title="Donner 1 étoiles">☆</a>
+          <a id="star2" class="voteStar"  title="Donner 2 étoiles">☆</a>
+          <a id="star3" class="voteStar"  title="Donner 3 étoiles">☆</a>
+          <a id="star4" class="voteStar"  title="Donner 4 étoiles">☆</a>
+          <a id="star5" class="voteStar"  title="Donner 5 étoile">☆</a>
+        </div>
+        <form id="addOpinionForm">
+          <label>Votre avis:  <textarea id="opinionInputText" name="opinion"></textarea></label><br>
+          <button id="addOpinionTable" type="button">Soumettre votre avis</button>
+        </form>
+      </div>
+      <div id="confirmationOpinion">
+        <p id="coche"></p>
+        <p id="pCoche">Votre avis à bien été ajouté ! Merci pour votre contribution.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div class="row">
+    <div class="col-lg-12 footer">
+      <div class="col-lg-3 logofooter">
+      </div>
+      <div class="col-lg-6">
+        <p id="contact">Pour nous contacter :<br>
+        BLAES Clémence<br>
+        01 02 03 04 05<br>
+        clemence.blaes@miaou.fr</p>
+      </div>
+      <div class="col-lg-3 logofooter">
+      </div>
+    </div>
+  </div>
+</footer>
